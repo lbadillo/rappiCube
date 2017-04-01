@@ -1,8 +1,7 @@
 Lenguaje: JAVA
-Tools: Maven:
-Estrucura:
-src (Carpeta que contiene todo el código)
-pom.xml (Archivo configurador maven)
+Tools: Maven.
+Fuentes: fuentes/src
+         fuentes/pom.xml
 Capas:
 La aplicación se realizó bajo tes capas:
 Modelo: En donde se especifica una clase con los campos  de la matriz de 3 dimensiones con sus respectivos valores
