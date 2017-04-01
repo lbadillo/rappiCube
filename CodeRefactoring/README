@@ -1,30 +1,21 @@
-Lenguaje: JAVA
-Tools: Maven:
-Estrucura:
-src (Carpeta que contiene todo el código)
-pom.xml (Archivo configurador maven)
-Capas:
-La aplicación se realizó bajo tes capas:
-Modelo: En donde se especifica una clase con los campos  de la matriz de 3 dimensiones con sus respectivos valores
-Controlador: En donde se hace toda la logica para generar los querys y los updates a la matriz tridimensional.
-Rest: Una capa de servicios REST que permite consumir las operaciones disponibles en el controlador.
-Vista: La aplicación web (html-javascript) que consume los servicos REST diponibles para la generaciòn de las consultas.
-Clases:
-  Modelo: (package rappi.cubeSummation.model)
-    Cube.java: Esta clase tiene por objeticvo crear el modelo de cada uno de los bloques de la matriz: coordenadas, valor y una llave 
-    unica.
-  Controlador:(package rappi.cubeSummation.controller)
-    Operations.java: Contiene la logica para implemetar las dos operaciones permitidas con la matriz: UPDATE y QUERY
-    OperationTraductor.java: Es la encarga de tomar los datos de entrada (Input) y hacer el puente entre la logica.
-  Rest: (package rappi.cubeSummation.rest)
-    CubeSummation.java: Publica un servico rest que devuelve el resultado de hacer las operaciones sobre la matriz.
-  Vista: Archivo HTML (index.html) que por medio de JQUERY consume el servicio expuesto.
-El proyecto fue realizado en java (Maven), con lo cual se puede facilmente compilar y generar el war. Al compilar la aplicación 
-(mvn clean install) inmediatamente se ejecutan las pruebas unitarias para ada uno de las clases que componene la solución (arriba explicadas).
-(CubeServices.war), el cual debe ser desplegado en un servido tomcat; una vez desplegado el war se debe dirigir a la dirección:
-http://localhost:8080/CubeServices/
-En donde podrá encontrar la interfaz grafica para hacer las diferentes operaciones de acuerdo al enunciado del problema.
-Las entradas a la aplicación deben cumplir con las especificaciones del problema, de otra forma el comportamiento de la 
-aplicación no será el esperado.
+Lenguaje: PHP Laravel.
+Fuentes: fuentes/reto.php
+Cambios Realizados:
+1. Existían bloques de código que no se iban a ejecutar porque la función hacia el retorno de valores antes de su ejecución. 
+Por ejemplo el siguiente código nunca se iba a ejecutar:
+  if($servicio->user->type =='1'){
+				$result = push->ios($servico->user-uuid,$pushMessage,1,'honk.wav', 'Open',array('service_id' => $servicio->id));
+			} else {
+				$result = push->android2($servico->user-uuid,$pushMessage,1,'default', 'Open', array('service_id' => $servicio->id));
 
-  
+			}
+2. Se introducen contantes para ser mas elegible el código: 
+   En el código entregado se utilizan muchos valores que con el itempo pueden cambiar y esto haría que se deba revisar todo el código para realizaar dichos cambios.
+
+3. La función solo hace un return de datos:
+   El código entregado hacia muchos returns de datos y esto podría generar mal funcionamiento de la aplicación y no se tiene mucho control sobre la misma.
+
+4. Validaciones:
+   Existian bloques de código que no validaban la información (variables), delegando la responsabilidad al usuario de su buen funcionamiento.
+   Para evitar esto se adicionaron algunas validaciones de las fucniones  para minimizar estos riesgos.
+   
