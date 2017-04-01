@@ -1,30 +1,20 @@
-Lenguaje: JAVA
-Tools: Maven:
-Estrucura:
-src (Carpeta que contiene todo el código)
-pom.xml (Archivo configurador maven)
-Capas:
-La aplicación se realizó bajo tes capas:
-Modelo: En donde se especifica una clase con los campos  de la matriz de 3 dimensiones con sus respectivos valores
-Controlador: En donde se hace toda la logica para generar los querys y los updates a la matriz tridimensional.
-Rest: Una capa de servicios REST que permite consumir las operaciones disponibles en el controlador.
-Vista: La aplicación web (html-javascript) que consume los servicos REST diponibles para la generaciòn de las consultas.
-Clases:
-  Modelo: (package rappi.cubeSummation.model)
-    Cube.java: Esta clase tiene por objeticvo crear el modelo de cada uno de los bloques de la matriz: coordenadas, valor y una llave 
-    unica.
-  Controlador:(package rappi.cubeSummation.controller)
-    Operations.java: Contiene la logica para implemetar las dos operaciones permitidas con la matriz: UPDATE y QUERY
-    OperationTraductor.java: Es la encarga de tomar los datos de entrada (Input) y hacer el puente entre la logica.
-  Rest: (package rappi.cubeSummation.rest)
-    CubeSummation.java: Publica un servico rest que devuelve el resultado de hacer las operaciones sobre la matriz.
-  Vista: Archivo HTML (index.html) que por medio de JQUERY consume el servicio expuesto.
-El proyecto fue realizado en java (Maven), con lo cual se puede facilmente compilar y generar el war. Al compilar la aplicación 
-(mvn clean install) inmediatamente se ejecutan las pruebas unitarias para ada uno de las clases que componene la solución (arriba explicadas).
-(CubeServices.war), el cual debe ser desplegado en un servido tomcat; una vez desplegado el war se debe dirigir a la dirección:
-http://localhost:8080/CubeServices/
-En donde podrá encontrar la interfaz grafica para hacer las diferentes operaciones de acuerdo al enunciado del problema.
-Las entradas a la aplicación deben cumplir con las especificaciones del problema, de otra forma el comportamiento de la 
-aplicación no será el esperado.
+¿En qué consiste el principio de responsabilidad única? ¿Cuál es su propósito?
+
+Al dividir las grandes actividades en pequeños y atomicos problemas, su solución se hace más entendible. 
+Cuando hay un elemento (servicio, componente, clase o mètodo) cuya finalidad abarca demasiadas capacidades, 
+esta se hace muy dificil de enteder y por ende puede inducir a varios errores.
+El principio de responsabilidad unica, hace referencia a asignar una responsabilidad atómica a cada componente que hace parte 
+de un desarrollo, con el fin de diferenciar claramente las competencias de cada elemento que integra la solución y de esta forma
+hacer mas entendible la misma logrando de esta manera que su mantenimiento sea facilmente realizado.
+
+¿Qué características tiene según tu opinión “buen” código o código limpio?
+
+1.Código Enfocado: Se puede tener una gran cantidad de clases y cada una de estas clases pueden tener mucho metodos con el fin de que cada uno de ellos sea simple y responda solamente por una responsabilidad de baja complejidad.
+2. Los nombres de las variables,, metodos y clases deben hacer referneic al problema que se esta atacando, de esta forma se ace mas entendible el còdigo.
+3. No existen metodos o clases que hagan lo mismo.
+4. Principios como la identación, nombre del as variables, clases y metodos, hacen que leer el código sea fácil.
+5. Debe tener pruebas unitarias y cumplir con los criterios de aceptaciòn.
+6. Se deben evadir metodos muy largos. Si algo es demasiado complejo se deben dividir en tareas cortas y precisas.
+
 
   
